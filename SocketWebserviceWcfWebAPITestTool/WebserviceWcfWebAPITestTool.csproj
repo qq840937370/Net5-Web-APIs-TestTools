@@ -6,4 +6,10 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Webservice测试\" />
+    <Folder Include="WCF测试\" />
+    <Folder Include="ASPNetCoreWebAPI测试\" />
+    <Folder Include="Socket测试\" />
+  </ItemGroup>
 </Project>
