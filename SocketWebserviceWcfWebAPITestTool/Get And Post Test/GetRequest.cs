@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WebserviceWcfWebAPITestTool.常规Get与Post用法
+namespace WebserviceWcfWebAPITestTool.Get_And_Post_Test
 {
-    public partial class 获取Json格式 : Form
+    public partial class GetRequest : Form
     {
-        public 获取Json格式()
+        public GetRequest()
         {
             InitializeComponent();
+        }
+
+        private void Get请求_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

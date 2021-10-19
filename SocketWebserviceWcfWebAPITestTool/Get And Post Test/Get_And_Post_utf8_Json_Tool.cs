@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WebserviceWcfWebAPITestTool.常规Get与Post用法
+namespace WebserviceWcfWebAPITestTool.Get_And_Post_Test
 {
-    public partial class 常规Get与Post及utf8与json工具 : Form
+    public partial class Get_And_Post_utf8_Json_Tool : Form
     {
-        public 常规Get与Post及utf8与json工具()
+        public Get_And_Post_utf8_Json_Tool()
         {
             InitializeComponent();
         }
@@ -34,19 +34,19 @@ namespace WebserviceWcfWebAPITestTool.常规Get与Post用法
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Get请求 get = new Get请求();
-            get.ShowDialog();
+            GetRequest getR = new GetRequest();
+            getR.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Post请求 post = new Post请求();
-            post.ShowDialog();
+            PostRequest postR = new PostRequest();
+            postR.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            获取Json格式 jsonwin = new 获取Json格式();
+            ToJsonFrom jsonwin = new ToJsonFrom();
             jsonwin.ShowDialog();
         }
     }

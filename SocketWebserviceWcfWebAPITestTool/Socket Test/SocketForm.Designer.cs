@@ -1,7 +1,7 @@
 ﻿
-namespace WebserviceWcfWebAPITestTool.常规Get与Post用法
+namespace WebserviceWcfWebAPITestTool.Socket_Test
 {
-    partial class Post请求
+    partial class SocketForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,18 @@ namespace WebserviceWcfWebAPITestTool.常规Get与Post用法
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // SocketForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Post请求";
+            this.Name = "SocketForm";
+            this.Text = "SocketForm";
+            this.Load += new System.EventHandler(this.SocketForm_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

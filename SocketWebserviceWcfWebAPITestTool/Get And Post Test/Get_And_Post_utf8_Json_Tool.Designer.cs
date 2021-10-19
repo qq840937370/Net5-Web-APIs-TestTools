@@ -1,7 +1,7 @@
 ﻿
-namespace WebserviceWcfWebAPITestTool.常规Get与Post用法
+namespace WebserviceWcfWebAPITestTool.Get_And_Post_Test
 {
-    partial class 常规Get与Post及utf8与json工具
+    partial class Get_And_Post_utf8_Json_Tool
     {
         /// <summary>
         /// Required designer variable.

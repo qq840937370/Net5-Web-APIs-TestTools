@@ -1,7 +1,7 @@
 ﻿
-namespace WebserviceWcfWebAPITestTool.常规Get与Post用法
+namespace WebserviceWcfWebAPITestTool.Get_And_Post_Test
 {
-    partial class Get请求
+    partial class PostRequest
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,18 @@ namespace WebserviceWcfWebAPITestTool.常规Get与Post用法
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Post请求
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Get请求";
+            this.Name = "Post请求";
+            this.Text = "Post请求";
+            this.Load += new System.EventHandler(this.Post请求_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

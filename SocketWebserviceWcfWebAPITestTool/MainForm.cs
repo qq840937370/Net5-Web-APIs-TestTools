@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WebserviceWcfWebAPITestTool.常规Get与Post用法;
+using WebserviceWcfWebAPITestTool.ASPNetCoreWebAPI_Test;
+using WebserviceWcfWebAPITestTool.Get_And_Post_Test;
+using WebserviceWcfWebAPITestTool.Socket_Test;
+using WebserviceWcfWebAPITestTool.WCF_Test;
+using WebserviceWcfWebAPITestTool.Webservice_Test;
 
 namespace WebserviceWcfWebAPITestTool
 {
@@ -20,8 +24,37 @@ namespace WebserviceWcfWebAPITestTool
 
         private void btn常规Get与Post_Click(object sender, EventArgs e)
         {
-            常规Get与Post及utf8与json工具 getpost1 = new 常规Get与Post及utf8与json工具();
+            // 常规Get与Post测试工具
+            Get_And_Post_utf8_Json_Tool getpost1 = new Get_And_Post_utf8_Json_Tool();
             getpost1.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // WebService测试工具
+            WebserviceFrom webserviceFrom = new WebserviceFrom();
+            webserviceFrom.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // WCF测试工具
+            WCFForm wCFForm = new WCFForm();
+            wCFForm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // ASPNET(Core)WebAPI
+            WebAPITestForm webAPITestForm = new WebAPITestForm();
+            webAPITestForm.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Socket测试工具
+            SocketForm socketForm = new SocketForm();
+            socketForm.ShowDialog();
         }
     }
 }

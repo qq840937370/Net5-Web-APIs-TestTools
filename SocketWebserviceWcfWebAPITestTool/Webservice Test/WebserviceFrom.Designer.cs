@@ -1,7 +1,7 @@
 ﻿
-namespace WebserviceWcfWebAPITestTool.常规Get与Post用法
+namespace WebserviceWcfWebAPITestTool.Webservice_Test
 {
-    partial class 获取Json格式
+    partial class WebserviceFrom
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace WebserviceWcfWebAPITestTool.常规Get与Post用法
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "获取Json格式";
+            this.Text = "WebserviceFrom";
         }
 
         #endregion

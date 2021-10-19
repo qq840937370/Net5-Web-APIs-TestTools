@@ -4,12 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>SocketWebserviceWcfWebAPITestTool</AssemblyName>
+    <RootNamespace>SocketWebserviceWcfWebAPITestTool</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Webservice测试\" />
-    <Folder Include="WCF测试\" />
-    <Folder Include="ASPNetCoreWebAPI测试\" />
-    <Folder Include="Socket测试\" />
-  </ItemGroup>
 </Project>
