@@ -58,16 +58,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>function testpost() {
+    <value>function putpost() {
 $.ajax({
-url: 'http://localhost:2779/api/Test/AddUser/',
-type: 'post',
+url: 'http://localhost:2779/api/Test/PutUser/?id=1',
+type: 'put',
 dataType: 'json',
-data: { "UserID": "4", 'UserName': "test", 'UserEmail': "123456@qq.com" },
+data: { "UserID": "1", 'UserName': "test1", 'UserEmail': "test123456@qq.com" },
 success: function (data) {
 alert(data);}
 });
-}
-</value>
+}</value>
   </data>
 </root>

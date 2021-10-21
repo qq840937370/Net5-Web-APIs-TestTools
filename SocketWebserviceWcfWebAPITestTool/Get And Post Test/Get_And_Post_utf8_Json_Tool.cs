@@ -19,6 +19,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SocketWebserviceWcfWebAPITestTool.Get_And_Post_Test;
+
 
 namespace WebserviceWcfWebAPITestTool.Get_And_Post_Test
 {
@@ -54,6 +56,17 @@ namespace WebserviceWcfWebAPITestTool.Get_And_Post_Test
         {
             PostRequest postR = new PostRequest();
             postR.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            PutRequest putRequest = new PutRequest();
+            putRequest.ShowDialog();
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DeleteRequest deleteRequest = new DeleteRequest();
+            deleteRequest.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
