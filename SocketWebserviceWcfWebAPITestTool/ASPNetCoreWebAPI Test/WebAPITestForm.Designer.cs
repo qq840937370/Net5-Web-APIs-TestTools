@@ -1,5 +1,4 @@
-﻿
-namespace WebserviceWcfWebAPITestTool.ASPNetCoreWebAPI_Test
+﻿namespace WebserviceWcfWebAPITestTool.ASPNetCoreWebAPI_Test
 {
     partial class WebAPITestForm
     {

@@ -114,6 +114,7 @@ namespace WebserviceWcfWebAPITestTool
             this.Controls.Add(this.btn常规Get与Post);
             this.Name = "MainForm";
             this.Text = "WebAPI技术测试工具-执笔小白";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

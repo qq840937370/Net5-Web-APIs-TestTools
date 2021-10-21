@@ -79,7 +79,7 @@ namespace WebserviceWcfWebAPITestTool.Get_And_Post_Test
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // 常规Get与Post及utf8与json工具
+            // Get_And_Post_utf8_Json_Tool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -88,8 +88,9 @@ namespace WebserviceWcfWebAPITestTool.Get_And_Post_Test
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "常规Get与Post及utf8与json工具";
+            this.Name = "Get_And_Post_utf8_Json_Tool";
             this.Text = "常规Get与Post及utf8与json工具";
+            this.Load += new System.EventHandler(this.Get_And_Post_utf8_Json_Tool_Load);
             this.ResumeLayout(false);
 
         }
