@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**
+*┌──────────────────────────────────────────────────────────────┐
+*│　描    述：Http请求工具类
+*│  Get     ：像数据库的select,只是用来查询一下数据，不会修改、增加数据，不会影响资源的内容。
+*│  Post    ：像数据库的insert操作一样，会创建新的内容。几乎目前所有的提交操作都是用POST请求的。
+*│  Put     ：像数据库的update操作一样，用来修改数据的内容，但是不会增加数据的种类等。
+*│  Delete  ：像数据库的delete操作
+*│　作    者：执笔小白
+*│　版    本：1.0                                       
+*│　创建时间：2021-10-20 15:40:56                            
+*└──────────────────────────────────────────────────────────────┘
+*┌──────────────────────────────────────────────────────────────┐
+*│　命名空间: WebserviceWcfWebAPITestTool.ASPNetCoreWebAPI_Test                             
+*│　类    名：WebAPITestForm                                     
+*└──────────────────────────────────────────────────────────────┘
+*/
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,6 +25,8 @@ using System.Threading.Tasks;
 namespace CommonTools
 {
     // 请求工具类
+    // HttpWebRequest(WebRequest.Create):.NET.Framework的请求/响应模型的抽象基类，用于访问Internet数据。
+    // HttpWebResponse:对http协议进行了完整的封装( Header, Content, Cookie)，与HttpWebRequest结合使用。
     public class RequestCom
     {
         /// <summary>
@@ -24,8 +42,8 @@ namespace CommonTools
             {
                 byte[] byteArray = Encoding.UTF8.GetBytes(postData);
                 HttpWebRequest objWebRequest = (HttpWebRequest)WebRequest.Create(Url);
-                objWebRequest.Method = "Get";
-                objWebRequest.ContentType = "application/json;charset=UTF-8";
+                objWebRequest.Method = "GET";
+                objWebRequest.ContentType = "application/json; charset=utf-8";
                 objWebRequest.ContentLength = byteArray.Length;
  
                 HttpWebResponse response = (HttpWebResponse)objWebRequest.GetResponse();
