@@ -10,6 +10,7 @@
 *│　类    名：WebAPITestForm                                     
 *└──────────────────────────────────────────────────────────────┘
 */
+using CommonTools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,7 +74,7 @@ namespace WebserviceWcfWebAPITestTool.Get_And_Post_Test
                 {
                     Url += "&" + txtName6.Text + "=" + txtValue6.Text;
                 }
-                string result = GetInfo("", Url);
+                string result = RequestCom.GetInfo("", Url);
                 txtResultValue.Text = result;
             }
             catch (Exception ex)
@@ -82,32 +83,6 @@ namespace WebserviceWcfWebAPITestTool.Get_And_Post_Test
             }
         }
 
-        /// <summary>
-        /// Get方法
-        /// </summary>
-        /// 例如：http://localhost:30202/api/ValuesTest/Sum?num1=1&num2=3
-        /// <param name="postData">后缀（?num1=1&num2=3）</param>
-        /// <param name="Url">url（http://localhost:30202/api/ValuesTest/Sum）</param>
-        /// <returns></returns>
-        public static string GetInfo(string postData, string Url)
-        {
-            try
-            {
-                byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-                HttpWebRequest objWebRequest = (HttpWebRequest)WebRequest.Create(Url);
-                objWebRequest.Method = "Get";
-                objWebRequest.ContentType = "application/json;charset=UTF-8";
-                objWebRequest.ContentLength = byteArray.Length;
-
-                HttpWebResponse response = (HttpWebResponse)objWebRequest.GetResponse();
-                StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
-                string textResponse = sr.ReadToEnd(); // 返回的数据
-                return textResponse;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+    
     }
 }
