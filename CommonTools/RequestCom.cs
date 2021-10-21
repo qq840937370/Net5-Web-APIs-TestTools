@@ -41,15 +41,17 @@ namespace CommonTools
             try
             {
                 byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-                HttpWebRequest objWebRequest = (HttpWebRequest)WebRequest.Create(Url);
-                objWebRequest.Method = "GET";
-                objWebRequest.ContentType = "application/json; charset=utf-8";
-                objWebRequest.ContentLength = byteArray.Length;
+                HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(Url);
+                webRequest.Method = "GET";
+                webRequest.Accept = "application/json, text/javascript, */*";  // 出错就删掉
+                webRequest.ContentType = "application/json; charset=utf-8";
+                webRequest.ContentLength = byteArray.Length;
  
-                HttpWebResponse response = (HttpWebResponse)objWebRequest.GetResponse();
-                StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
-                string textResponse = sr.ReadToEnd(); // 返回的数据
-                return textResponse;
+                HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
+                using (StreamReader sr = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
+                {
+                    return sr.ReadToEnd(); // 返回的数据
+                }
             }
             catch (Exception ex)
             {
@@ -67,29 +69,23 @@ namespace CommonTools
         {
             try
             {
-                Encoding encoding = Encoding.UTF8;
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.Method = "POST";
-                request.Accept = "application/json, text/javascript, */*"; //"text/html, application/xhtml+xml, */*";
-                request.ContentType = "application/json; charset=utf-8";
+                byte[] byteArray = Encoding.UTF8.GetBytes(body);
+                HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
+                webRequest.Method = "POST";
+                webRequest.Accept = "application/json, text/javascript, */*";
+                webRequest.ContentType = "application/json; charset=utf-8";
+                webRequest.ContentLength = byteArray.Length;
+                webRequest.GetRequestStream().Write(byteArray, 0, byteArray.Length);
 
-                byte[] buffer = encoding.GetBytes(body);
-                request.ContentLength = buffer.Length;
-                request.GetRequestStream().Write(buffer, 0, buffer.Length);
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                using (StreamReader reader = new StreamReader(response.GetResponseStream(), encoding))
+                HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
+                using (StreamReader sr = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
                 {
-                    return reader.ReadToEnd();
+                    return sr.ReadToEnd();
                 }
             }
-            catch (WebException ex)
+            catch (Exception ex)
             {
-                var res = (HttpWebResponse)ex.Response;
-                StringBuilder sb = new StringBuilder();
-                StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
-                sb.Append(sr.ReadToEnd());
-                //string ssb = sb.ToString();
-                throw new Exception(sb.ToString());
+                throw new Exception(ex.Message);
             }
         }
 
@@ -103,29 +99,23 @@ namespace CommonTools
         {
             try
             {
-                Encoding encoding = Encoding.UTF8;
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.Method = "PUT";
-                request.Accept = "application/json, text/javascript, */*"; //"text/html, application/xhtml+xml, */*";
-                request.ContentType = "application/json";
+                byte[] byteArray = Encoding.UTF8.GetBytes(body);
+                HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
+                webRequest.Method = "PUT";
+                webRequest.Accept = "application/json, text/javascript, */*";
+                webRequest.ContentType = "application/json";
+                webRequest.ContentLength = byteArray.Length;
+                webRequest.GetRequestStream().Write(byteArray, 0, byteArray.Length);
 
-                byte[] buffer = encoding.GetBytes(body);
-                request.ContentLength = buffer.Length;
-                request.GetRequestStream().Write(buffer, 0, buffer.Length);
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                using (StreamReader reader = new StreamReader(response.GetResponseStream(), encoding))
+                HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
+                using (StreamReader sr = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
                 {
-                    return reader.ReadToEnd();
+                    return sr.ReadToEnd();
                 }
             }
-            catch (WebException ex)
+            catch (Exception ex)
             {
-                var res = (HttpWebResponse)ex.Response;
-                StringBuilder sb = new StringBuilder();
-                StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
-                sb.Append(sr.ReadToEnd());
-                //string ssb = sb.ToString();
-                throw new Exception(sb.ToString());
+                throw new Exception(ex.Message);
             }
         }
 
@@ -139,29 +129,23 @@ namespace CommonTools
         {
             try
             {
-                Encoding encoding = Encoding.UTF8;
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.Method = "DELETE";
-                request.Accept = "application/json, text/javascript, */*"; //"text/html, application/xhtml+xml, */*";
-                request.ContentType = "application/json";
+                byte[] byteArray = Encoding.UTF8.GetBytes(body);
+                HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
+                webRequest.Method = "DELETE";
+                webRequest.Accept = "application/json, text/javascript, */*";
+                webRequest.ContentType = "application/json";
+                webRequest.ContentLength = byteArray.Length;
+                webRequest.GetRequestStream().Write(byteArray, 0, byteArray.Length);
 
-                byte[] buffer = encoding.GetBytes(body);
-                request.ContentLength = buffer.Length;
-                request.GetRequestStream().Write(buffer, 0, buffer.Length);
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                using (StreamReader reader = new StreamReader(response.GetResponseStream(), encoding))
+                HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
+                using (StreamReader sr = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
                 {
-                    return reader.ReadToEnd();
+                    return sr.ReadToEnd();
                 }
             }
-            catch (WebException ex)
+            catch (Exception ex)
             {
-                var res = (HttpWebResponse)ex.Response;
-                StringBuilder sb = new StringBuilder();
-                StreamReader sr = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
-                sb.Append(sr.ReadToEnd());
-                //string ssb = sb.ToString();
-                throw new Exception(sb.ToString());
+                throw new Exception(ex.Message);
             }
         }
     }
