@@ -85,8 +85,9 @@ namespace WebserviceWcfWebAPITestTool.Get_And_Post_Test
         /// <summary>
         /// Get方法
         /// </summary>
-        /// <param name="postData"></param>
-        /// <param name="Url"></param>
+        /// 例如：http://localhost:30202/api/ValuesTest/Sum?num1=1&num2=3
+        /// <param name="postData">后缀（?num1=1&num2=3）</param>
+        /// <param name="Url">url（http://localhost:30202/api/ValuesTest/Sum）</param>
         /// <returns></returns>
         public static string GetInfo(string postData, string Url)
         {
@@ -97,9 +98,7 @@ namespace WebserviceWcfWebAPITestTool.Get_And_Post_Test
                 objWebRequest.Method = "Get";
                 objWebRequest.ContentType = "application/json;charset=UTF-8";
                 objWebRequest.ContentLength = byteArray.Length;
-                //Stream newStream = objWebRequest.GetRequestStream();
-                //newStream.Write(byteArray, 0, byteArray.Length); //写入参数 
-                //newStream.Close();
+
                 HttpWebResponse response = (HttpWebResponse)objWebRequest.GetResponse();
                 StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
                 string textResponse = sr.ReadToEnd(); // 返回的数据

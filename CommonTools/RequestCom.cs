@@ -38,6 +38,7 @@ namespace CommonTools
                 throw new Exception(ex.Message);
             }
         }
+
         /// <summary>
         /// Post请求
         /// </summary>
