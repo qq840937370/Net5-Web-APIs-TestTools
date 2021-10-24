@@ -19,6 +19,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebserviceWcfWebAPITestTool.Get_And_Post_Test;
 
 namespace WebserviceWcfWebAPITestTool.WCF_Test
 {
@@ -32,6 +33,12 @@ namespace WebserviceWcfWebAPITestTool.WCF_Test
         private void WCFForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Get_And_Post_utf8_Json_Tool form= new Get_And_Post_utf8_Json_Tool();
+            form.ShowDialog();
         }
     }
 }

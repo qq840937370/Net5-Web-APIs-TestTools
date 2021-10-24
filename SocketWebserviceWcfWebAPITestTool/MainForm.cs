@@ -10,6 +10,7 @@
 *│　类    名：WebAPITestForm                                     
 *└──────────────────────────────────────────────────────────────┘
 */
+using SocketWebserviceWcfWebAPITestTool.Webservice_Test;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,6 @@ using WebserviceWcfWebAPITestTool.ASPNetCoreWebAPI_Test;
 using WebserviceWcfWebAPITestTool.Get_And_Post_Test;
 using WebserviceWcfWebAPITestTool.Socket_Test;
 using WebserviceWcfWebAPITestTool.WCF_Test;
-using WebserviceWcfWebAPITestTool.Webservice_Test;
 
 namespace WebserviceWcfWebAPITestTool
 {

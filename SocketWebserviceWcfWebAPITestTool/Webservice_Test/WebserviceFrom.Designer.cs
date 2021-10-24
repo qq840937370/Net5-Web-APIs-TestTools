@@ -1,7 +1,7 @@
 ﻿
-namespace WebserviceWcfWebAPITestTool.WCF_Test
+namespace SocketWebserviceWcfWebAPITestTool.Webservice_Test
 {
-    partial class WCFForm
+    partial class WebserviceFrom
     {
         /// <summary>
         /// Required designer variable.
@@ -31,14 +31,14 @@ namespace WebserviceWcfWebAPITestTool.WCF_Test
         {
             this.SuspendLayout();
             // 
-            // WCFForm
+            // WebserviceFrom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "WCFForm";
-            this.Text = "WCFForm";
-            this.Load += new System.EventHandler(this.WCFForm_Load);
+            this.Name = "WebserviceFrom";
+            this.Text = "WebserviceFrom";
+            this.Load += new System.EventHandler(this.WebserviceFrom_Load);
             this.ResumeLayout(false);
 
         }

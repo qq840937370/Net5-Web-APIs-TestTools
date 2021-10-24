@@ -40,5 +40,10 @@ namespace SocketWebserviceWcfWebAPITestTool.Get_And_Post_Test
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void DeleteRequest_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
