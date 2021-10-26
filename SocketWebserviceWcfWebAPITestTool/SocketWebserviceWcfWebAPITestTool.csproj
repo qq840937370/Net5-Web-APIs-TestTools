@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CommonTools\CommonTools.csproj" />
+    <ProjectReference Include="..\WebServceTestSup\WebServceTestSup.csproj" />
   </ItemGroup>
 
   <ItemGroup>
