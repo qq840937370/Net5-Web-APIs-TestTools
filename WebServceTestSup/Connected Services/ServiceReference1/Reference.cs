@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebServceTestSup.WebService1Reference {
+namespace WebServceTestSup.ServiceReference1 {
     using System.Runtime.Serialization;
     using System;
     
@@ -73,15 +73,15 @@ namespace WebServceTestSup.WebService1Reference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WebService1Reference.WebService1Soap")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.WebService1Soap")]
     public interface WebService1Soap {
         
         // CODEGEN: 命名空间 http://tempuri.org/ 的元素名称 HelloWorldResult 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        WebServceTestSup.WebService1Reference.HelloWorldResponse HelloWorld(WebServceTestSup.WebService1Reference.HelloWorldRequest request);
+        WebServceTestSup.ServiceReference1.HelloWorldResponse HelloWorld(WebServceTestSup.ServiceReference1.HelloWorldRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        System.Threading.Tasks.Task<WebServceTestSup.WebService1Reference.HelloWorldResponse> HelloWorldAsync(WebServceTestSup.WebService1Reference.HelloWorldRequest request);
+        System.Threading.Tasks.Task<WebServceTestSup.ServiceReference1.HelloWorldResponse> HelloWorldAsync(WebServceTestSup.ServiceReference1.HelloWorldRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Add", ReplyAction="*")]
         int Add(int a, int b);
@@ -91,10 +91,10 @@ namespace WebServceTestSup.WebService1Reference {
         
         // CODEGEN: 命名空间 http://tempuri.org/ 的元素名称 tc1 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Sub", ReplyAction="*")]
-        WebServceTestSup.WebService1Reference.SubResponse Sub(WebServceTestSup.WebService1Reference.SubRequest request);
+        WebServceTestSup.ServiceReference1.SubResponse Sub(WebServceTestSup.ServiceReference1.SubRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Sub", ReplyAction="*")]
-        System.Threading.Tasks.Task<WebServceTestSup.WebService1Reference.SubResponse> SubAsync(WebServceTestSup.WebService1Reference.SubRequest request);
+        System.Threading.Tasks.Task<WebServceTestSup.ServiceReference1.SubResponse> SubAsync(WebServceTestSup.ServiceReference1.SubRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -104,12 +104,12 @@ namespace WebServceTestSup.WebService1Reference {
     public partial class HelloWorldRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorld", Namespace="http://tempuri.org/", Order=0)]
-        public WebServceTestSup.WebService1Reference.HelloWorldRequestBody Body;
+        public WebServceTestSup.ServiceReference1.HelloWorldRequestBody Body;
         
         public HelloWorldRequest() {
         }
         
-        public HelloWorldRequest(WebServceTestSup.WebService1Reference.HelloWorldRequestBody Body) {
+        public HelloWorldRequest(WebServceTestSup.ServiceReference1.HelloWorldRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -131,12 +131,12 @@ namespace WebServceTestSup.WebService1Reference {
     public partial class HelloWorldResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorldResponse", Namespace="http://tempuri.org/", Order=0)]
-        public WebServceTestSup.WebService1Reference.HelloWorldResponseBody Body;
+        public WebServceTestSup.ServiceReference1.HelloWorldResponseBody Body;
         
         public HelloWorldResponse() {
         }
         
-        public HelloWorldResponse(WebServceTestSup.WebService1Reference.HelloWorldResponseBody Body) {
+        public HelloWorldResponse(WebServceTestSup.ServiceReference1.HelloWorldResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -165,12 +165,12 @@ namespace WebServceTestSup.WebService1Reference {
     public partial class SubRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="Sub", Namespace="http://tempuri.org/", Order=0)]
-        public WebServceTestSup.WebService1Reference.SubRequestBody Body;
+        public WebServceTestSup.ServiceReference1.SubRequestBody Body;
         
         public SubRequest() {
         }
         
-        public SubRequest(WebServceTestSup.WebService1Reference.SubRequestBody Body) {
+        public SubRequest(WebServceTestSup.ServiceReference1.SubRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -182,12 +182,12 @@ namespace WebServceTestSup.WebService1Reference {
     public partial class SubRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public WebServceTestSup.WebService1Reference.Tc1 tc1;
+        public WebServceTestSup.ServiceReference1.Tc1 tc1;
         
         public SubRequestBody() {
         }
         
-        public SubRequestBody(WebServceTestSup.WebService1Reference.Tc1 tc1) {
+        public SubRequestBody(WebServceTestSup.ServiceReference1.Tc1 tc1) {
             this.tc1 = tc1;
         }
     }
@@ -199,12 +199,12 @@ namespace WebServceTestSup.WebService1Reference {
     public partial class SubResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="SubResponse", Namespace="http://tempuri.org/", Order=0)]
-        public WebServceTestSup.WebService1Reference.SubResponseBody Body;
+        public WebServceTestSup.ServiceReference1.SubResponseBody Body;
         
         public SubResponse() {
         }
         
-        public SubResponse(WebServceTestSup.WebService1Reference.SubResponseBody Body) {
+        public SubResponse(WebServceTestSup.ServiceReference1.SubResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -227,12 +227,12 @@ namespace WebServceTestSup.WebService1Reference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface WebService1SoapChannel : WebServceTestSup.WebService1Reference.WebService1Soap, System.ServiceModel.IClientChannel {
+    public interface WebService1SoapChannel : WebServceTestSup.ServiceReference1.WebService1Soap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WebService1SoapClient : System.ServiceModel.ClientBase<WebServceTestSup.WebService1Reference.WebService1Soap>, WebServceTestSup.WebService1Reference.WebService1Soap {
+    public partial class WebService1SoapClient : System.ServiceModel.ClientBase<WebServceTestSup.ServiceReference1.WebService1Soap>, WebServceTestSup.ServiceReference1.WebService1Soap {
         
         public WebService1SoapClient() {
         }
@@ -254,26 +254,26 @@ namespace WebServceTestSup.WebService1Reference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebServceTestSup.WebService1Reference.HelloWorldResponse WebServceTestSup.WebService1Reference.WebService1Soap.HelloWorld(WebServceTestSup.WebService1Reference.HelloWorldRequest request) {
+        WebServceTestSup.ServiceReference1.HelloWorldResponse WebServceTestSup.ServiceReference1.WebService1Soap.HelloWorld(WebServceTestSup.ServiceReference1.HelloWorldRequest request) {
             return base.Channel.HelloWorld(request);
         }
         
         public string HelloWorld() {
-            WebServceTestSup.WebService1Reference.HelloWorldRequest inValue = new WebServceTestSup.WebService1Reference.HelloWorldRequest();
-            inValue.Body = new WebServceTestSup.WebService1Reference.HelloWorldRequestBody();
-            WebServceTestSup.WebService1Reference.HelloWorldResponse retVal = ((WebServceTestSup.WebService1Reference.WebService1Soap)(this)).HelloWorld(inValue);
+            WebServceTestSup.ServiceReference1.HelloWorldRequest inValue = new WebServceTestSup.ServiceReference1.HelloWorldRequest();
+            inValue.Body = new WebServceTestSup.ServiceReference1.HelloWorldRequestBody();
+            WebServceTestSup.ServiceReference1.HelloWorldResponse retVal = ((WebServceTestSup.ServiceReference1.WebService1Soap)(this)).HelloWorld(inValue);
             return retVal.Body.HelloWorldResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WebServceTestSup.WebService1Reference.HelloWorldResponse> WebServceTestSup.WebService1Reference.WebService1Soap.HelloWorldAsync(WebServceTestSup.WebService1Reference.HelloWorldRequest request) {
+        System.Threading.Tasks.Task<WebServceTestSup.ServiceReference1.HelloWorldResponse> WebServceTestSup.ServiceReference1.WebService1Soap.HelloWorldAsync(WebServceTestSup.ServiceReference1.HelloWorldRequest request) {
             return base.Channel.HelloWorldAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WebServceTestSup.WebService1Reference.HelloWorldResponse> HelloWorldAsync() {
-            WebServceTestSup.WebService1Reference.HelloWorldRequest inValue = new WebServceTestSup.WebService1Reference.HelloWorldRequest();
-            inValue.Body = new WebServceTestSup.WebService1Reference.HelloWorldRequestBody();
-            return ((WebServceTestSup.WebService1Reference.WebService1Soap)(this)).HelloWorldAsync(inValue);
+        public System.Threading.Tasks.Task<WebServceTestSup.ServiceReference1.HelloWorldResponse> HelloWorldAsync() {
+            WebServceTestSup.ServiceReference1.HelloWorldRequest inValue = new WebServceTestSup.ServiceReference1.HelloWorldRequest();
+            inValue.Body = new WebServceTestSup.ServiceReference1.HelloWorldRequestBody();
+            return ((WebServceTestSup.ServiceReference1.WebService1Soap)(this)).HelloWorldAsync(inValue);
         }
         
         public int Add(int a, int b) {
@@ -285,28 +285,28 @@ namespace WebServceTestSup.WebService1Reference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebServceTestSup.WebService1Reference.SubResponse WebServceTestSup.WebService1Reference.WebService1Soap.Sub(WebServceTestSup.WebService1Reference.SubRequest request) {
+        WebServceTestSup.ServiceReference1.SubResponse WebServceTestSup.ServiceReference1.WebService1Soap.Sub(WebServceTestSup.ServiceReference1.SubRequest request) {
             return base.Channel.Sub(request);
         }
         
-        public int Sub(WebServceTestSup.WebService1Reference.Tc1 tc1) {
-            WebServceTestSup.WebService1Reference.SubRequest inValue = new WebServceTestSup.WebService1Reference.SubRequest();
-            inValue.Body = new WebServceTestSup.WebService1Reference.SubRequestBody();
+        public int Sub(WebServceTestSup.ServiceReference1.Tc1 tc1) {
+            WebServceTestSup.ServiceReference1.SubRequest inValue = new WebServceTestSup.ServiceReference1.SubRequest();
+            inValue.Body = new WebServceTestSup.ServiceReference1.SubRequestBody();
             inValue.Body.tc1 = tc1;
-            WebServceTestSup.WebService1Reference.SubResponse retVal = ((WebServceTestSup.WebService1Reference.WebService1Soap)(this)).Sub(inValue);
+            WebServceTestSup.ServiceReference1.SubResponse retVal = ((WebServceTestSup.ServiceReference1.WebService1Soap)(this)).Sub(inValue);
             return retVal.Body.SubResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WebServceTestSup.WebService1Reference.SubResponse> WebServceTestSup.WebService1Reference.WebService1Soap.SubAsync(WebServceTestSup.WebService1Reference.SubRequest request) {
+        System.Threading.Tasks.Task<WebServceTestSup.ServiceReference1.SubResponse> WebServceTestSup.ServiceReference1.WebService1Soap.SubAsync(WebServceTestSup.ServiceReference1.SubRequest request) {
             return base.Channel.SubAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WebServceTestSup.WebService1Reference.SubResponse> SubAsync(WebServceTestSup.WebService1Reference.Tc1 tc1) {
-            WebServceTestSup.WebService1Reference.SubRequest inValue = new WebServceTestSup.WebService1Reference.SubRequest();
-            inValue.Body = new WebServceTestSup.WebService1Reference.SubRequestBody();
+        public System.Threading.Tasks.Task<WebServceTestSup.ServiceReference1.SubResponse> SubAsync(WebServceTestSup.ServiceReference1.Tc1 tc1) {
+            WebServceTestSup.ServiceReference1.SubRequest inValue = new WebServceTestSup.ServiceReference1.SubRequest();
+            inValue.Body = new WebServceTestSup.ServiceReference1.SubRequestBody();
             inValue.Body.tc1 = tc1;
-            return ((WebServceTestSup.WebService1Reference.WebService1Soap)(this)).SubAsync(inValue);
+            return ((WebServceTestSup.ServiceReference1.WebService1Soap)(this)).SubAsync(inValue);
         }
     }
 }

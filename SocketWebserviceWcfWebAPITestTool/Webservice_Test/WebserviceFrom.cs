@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WebServceTestSup.Webservice_Test;
+using WebServceTestSup;
 
 namespace SocketWebserviceWcfWebAPITestTool.Webservice_Test
 {
@@ -25,8 +25,9 @@ namespace SocketWebserviceWcfWebAPITestTool.Webservice_Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            引用式调用WebService ws1 = new 引用式调用WebService();
-            ws1.ShowDialog();
+            MessageBox.Show("请运行【WebServceTestSup】工程中的【引用式调用WebService】");
+            //引用式调用WebService webService1 = new 引用式调用WebService();
+            //webService1.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
