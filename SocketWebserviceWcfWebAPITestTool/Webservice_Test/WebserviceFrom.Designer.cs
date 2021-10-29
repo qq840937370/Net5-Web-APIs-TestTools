@@ -57,10 +57,10 @@ namespace SocketWebserviceWcfWebAPITestTool.Webservice_Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 342);
+            this.ClientSize = new System.Drawing.Size(332, 194);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WebserviceFrom";
             this.Text = "WebserviceFrom";
             this.Load += new System.EventHandler(this.WebserviceFrom_Load);

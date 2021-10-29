@@ -158,95 +158,59 @@ namespace CommonTools
 
         #region WebService
 
-        // Set-略
-
+        /// <summary>
+        /// Set-略
+        /// </summary>
 
         /// <summary>
         /// Post方法
         /// </summary>
         /// <param name="url">webService的URL</param>
         /// <param name="method">调用的方法</param>
-        /// <param name="reqBodys"></param>
+        /// <param name="reqBodys">参数组合</param>
         /// <returns></returns>
-        public static string WebServiceHttpPost(string url, string method, List<ReqBody> reqBodys)
+        public static string WebServiceHttpPost(string URL, string Method, List<ReqBody> ReqBodys)
         {
-            string result = string.Empty;
             string param = string.Empty;
-            byte[] bytes = null;
-
-            Stream writer = null;
-            HttpWebRequest request = null;
-            HttpWebResponse response = null;
-
-            switch (reqBodys.Count)
+            switch (ReqBodys.Count)
             {
                 case 0:
                     break;
                 case 1:
-                    param = HttpUtility.UrlEncode(reqBodys[0].Key) + "=" + HttpUtility.UrlEncode(reqBodys[0].Value);
+                    param = HttpUtility.UrlEncode(ReqBodys[0].Key) + "=" + HttpUtility.UrlEncode(ReqBodys[0].Value);
                     break;
                 default:
-                    param = HttpUtility.UrlEncode(reqBodys[0].Key) + "=" + HttpUtility.UrlEncode(reqBodys[0].Value);
-                    for (int i=1; i<reqBodys.Count; i++)
+                    param = HttpUtility.UrlEncode(ReqBodys[0].Key) + "=" + HttpUtility.UrlEncode(ReqBodys[0].Value);
+                    for (int i = 1; i < ReqBodys.Count; i++)
                     {
-                        param += "&" + HttpUtility.UrlEncode(reqBodys[i].Key) + "=" + HttpUtility.UrlEncode(reqBodys[i].Value);
+                        param += "&" + HttpUtility.UrlEncode(ReqBodys[i].Key) + "=" + HttpUtility.UrlEncode(ReqBodys[i].Value);
                     }
                     break;
             }
+            byte[] byteArray = Encoding.UTF8.GetBytes(param);
 
-            bytes = Encoding.UTF8.GetBytes(param);
+            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(URL + "/" + Method);
+            webRequest.Method = "POST";
+            webRequest.ContentType = "application/x-www-form-urlencoded";
+            webRequest.ContentLength = byteArray.Length;
+            webRequest.GetRequestStream().Write(byteArray, 0, byteArray.Length);       //把参数数据写入请求数据的Stream对象
 
-            request = (HttpWebRequest)WebRequest.Create(url + "/" + method);
-            request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = bytes.Length;
+            HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();      //获得响应
 
-            try
+            #region 这种方式读取到的是一个返回的结果字符串 
+            using(XmlTextReader reader = new XmlTextReader(webResponse.GetResponseStream()))  //获取响应流
             {
-                writer = request.GetRequestStream();        //获取用于写入请求数据的Stream对象
+                reader.MoveToContent();
+                return reader.ReadInnerXml();
             }
-            catch (Exception ex)
-            {
-                return "";
-            }
-
-            writer.Write(bytes, 0, bytes.Length);       //把参数数据写入请求数据流
-            writer.Close();
-
-            try
-            {
-                response = (HttpWebResponse)request.GetResponse();      //获得响应
-            }
-            catch (WebException ex)
-            {
-                return "";
-            }
-
-            #region 这种方式读取到的是一个返回的结果字符串
-            Stream stream = response.GetResponseStream();        //获取响应流
-            XmlTextReader Reader = new XmlTextReader(stream);
-            Reader.MoveToContent();
-            result = Reader.ReadInnerXml();
             #endregion
 
             #region 这种方式读取到的是一个Xml格式的字符串
-            //StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
-            //result = reader.ReadToEnd();
-            #endregion 
-
-            response.Dispose();
-            response.Close();
-
-            //reader.Close();
-            //reader.Dispose();
-
-            Reader.Dispose();
-            Reader.Close();
-
-            stream.Dispose();
-            stream.Close();
-
-            return result;
+            //using(StreamReader sr = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8));
+            //{
+            //    return sr.ReadToEnd();
+            //}
+            #endregion
         }
         #endregion
     }

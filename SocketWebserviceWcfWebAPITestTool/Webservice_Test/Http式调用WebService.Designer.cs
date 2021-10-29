@@ -118,7 +118,7 @@ namespace SocketWebserviceWcfWebAPITestTool.Webservice_Test
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(148, 45);
             this.button4.TabIndex = 12;
-            this.button4.Text = "Set调用-略";
+            this.button4.Text = "Set调用方法-略";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
