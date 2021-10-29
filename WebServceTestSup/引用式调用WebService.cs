@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CommonTools;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,7 +25,7 @@ namespace WebServceTestSup
         }
 
         /// <summary>
-        /// 欢迎
+        /// 欢迎 -Async
         /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
@@ -58,5 +60,42 @@ namespace WebServceTestSup
 
             textBox1.Text = requestClient.Sub(tc1).ToString();
         }
+
+        /// <summary>
+        /// DataSet测试
+        /// </summary>
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ServiceReference1.WebService1SoapClient requestClient = new ServiceReference1.WebService1SoapClient();
+
+            ServiceReference1.DataSetTB1 dsTB1 = new ServiceReference1.DataSetTB1();
+
+            for (int i = 0; i < 5; i++)
+            {
+                DataRow dataRow = dsTB1.DTTest1.NewRow();
+                {
+                    dataRow["ID"] = (i + 1).ToString();
+                    dataRow["Name"] = "姓名" + (i + 1).ToString();
+                    dataRow["Class"] = "";
+                }
+                dsTB1.DTTest1.Rows.Add(dataRow);
+            }
+            ServiceReference1.DataSetTB1 dsTBRe = new ServiceReference1.DataSetTB1();
+
+            //requestClient.DataSetTestAsync();
+            dsTBRe = requestClient.DataSetTest(dsTB1);
+
+            List<Xue> xue = DataTools.DataSetToIList<Xue>(dsTBRe, 0);
+            textBox1.Text = JsonConvert.SerializeObject(xue);
+        }
+    }
+    
+    public class Xue{
+
+        public string ID { get; set; }
+
+        public string Name { get; set; }
+
+        public string Class { get; set; }
     }
 }

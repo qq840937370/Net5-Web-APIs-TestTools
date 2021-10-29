@@ -23,6 +23,7 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="WebService1.disco" MetadataType="Disco" ID="fcbacc8e-a9cd-4a4d-8b08-e5b9ae60005b" SourceId="1" SourceUrl="http://localhost:65172/WebService1.asmx?disco" />
+    <MetadataFile FileName="DataSetTB1.xsd" MetadataType="Schema" ID="2d3b19b4-f1e2-492b-a2fb-41137dc5e8c7" SourceId="1" SourceUrl="http://localhost:65172/WebService1.asmx?schema=DataSetTB1" />
     <MetadataFile FileName="WebService1.wsdl" MetadataType="Wsdl" ID="3b3ac0b4-1870-462f-bcc7-f8b37adac81f" SourceId="1" SourceUrl="http://localhost:65172/WebService1.asmx?wsdl" />
   </Metadata>
   <Extensions>

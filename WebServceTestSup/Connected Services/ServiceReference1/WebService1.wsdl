@@ -2,6 +2,8 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://tempuri.org/DataSetTB1.xsd" />
+      <s:import schemaLocation="http://localhost:65172/WebService1.asmx?schema=DataSetTB1" namespace="http://tempuri.org/DataSetTB1.xsd" />
       <s:element name="HelloWorld">
         <s:complexType />
       </s:element>
@@ -47,6 +49,32 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="DataSetTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tc1">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/DataSetTB1.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSetTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DataSetTestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/DataSetTB1.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -67,6 +95,12 @@
   <wsdl:message name="SubSoapOut">
     <wsdl:part name="parameters" element="tns:SubResponse" />
   </wsdl:message>
+  <wsdl:message name="DataSetTestSoapIn">
+    <wsdl:part name="parameters" element="tns:DataSetTest" />
+  </wsdl:message>
+  <wsdl:message name="DataSetTestSoapOut">
+    <wsdl:part name="parameters" element="tns:DataSetTestResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebService1Soap">
     <wsdl:operation name="HelloWorld">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">欢迎界面</wsdl:documentation>
@@ -82,6 +116,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">求差方法</wsdl:documentation>
       <wsdl:input message="tns:SubSoapIn" />
       <wsdl:output message="tns:SubSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DataSetTest">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DataSet测试</wsdl:documentation>
+      <wsdl:input message="tns:DataSetTestSoapIn" />
+      <wsdl:output message="tns:DataSetTestSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
@@ -113,6 +152,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DataSetTest">
+      <soap:operation soapAction="http://tempuri.org/DataSetTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -136,6 +184,15 @@
     </wsdl:operation>
     <wsdl:operation name="Sub">
       <soap12:operation soapAction="http://tempuri.org/Sub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataSetTest">
+      <soap12:operation soapAction="http://tempuri.org/DataSetTest" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -16,19 +16,4 @@
     <ProjectReference Include="..\CommonTools\CommonTools.csproj" />
     <ProjectReference Include="..\WebServceTestSup\WebServceTestSup.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Webservice_Test\DataSetmodel.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DataSetModel.xsd</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Webservice_Test\DataSetModel.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetmodel.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
 </Project>
