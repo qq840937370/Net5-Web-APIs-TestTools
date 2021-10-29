@@ -21,30 +21,58 @@ namespace SocketWebserviceWcfWebAPITestTool.Webservice_Test
         {
             InitializeComponent();
         }
+        // set
+        private void button4_Click(object sender, EventArgs e)
+        {
 
+        }
+        // post
         private void button1_Click(object sender, EventArgs e)
         {
 
-            string mUrl = Url + "/HelloWorld";
-            string result = RequestCom.WebServiceHttpPost(mUrl,"");
-            MessageBox.Show("三天没写出来，大神请留言告诉我怎么做");
+            string Method = "HelloWorld";
+
+            List<ReqBody> reqBodys = new List<ReqBody>();
+
+            string result = RequestCom.WebServiceHttpPost(Url, Method, reqBodys);
+            textBox5.Text = result;
         }
 
+        // set
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // post
         private void button2_Click(object sender, EventArgs e)
         {
-            string methodUrl = Url + "/Add HTTP/1.1";
+            string Method =  "Add";
 
             // a=string&b=string
-            string bodystr = "a=" + textBox1.Text.Trim()+ "&b=" + textBox2.Text.Trim();
-            
-             string result = RequestCom.WebServiceHttpPost(Url, bodystr);
-            MessageBox.Show("三天没写出来，大神请留言告诉我怎么做");
+            List<ReqBody> reqBodys = new List<ReqBody>();
+
+            ReqBody reqBody1 = new ReqBody();
+            ReqBody reqBody2 = new ReqBody();
+            reqBody1.Key=labela.Text.Trim();
+            reqBody1.Value = textBoxa.Text.Trim();
+
+            reqBody2.Key = labelb.Text.Trim();
+            reqBody2.Value = textBoxb.Text.Trim();
+
+            reqBodys.Add(reqBody1);
+            reqBodys.Add(reqBody2);
+
+            string result = RequestCom.WebServiceHttpPost(Url, Method, reqBodys);
+            textBox5.Text = result;
         }
 
+        // 其他
         private void button3_Click(object sender, EventArgs e)
         {
             MessageBox.Show("请看http://localhost:65172/WebService1.asmx?op=Sub页面，他并不支持http调用，可能参数是自定义的实体类的都不行");
         }
+
     }
     public class Tc1
     {

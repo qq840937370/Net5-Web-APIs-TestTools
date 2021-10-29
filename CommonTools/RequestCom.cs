@@ -157,34 +157,110 @@ namespace CommonTools
         #endregion
 
         #region WebService
-        public static string WebServiceHttpPost(string mUrl, string body)
+
+        // Set-略
+
+
+        /// <summary>
+        /// Post方法
+        /// </summary>
+        /// <param name="url">webService的URL</param>
+        /// <param name="method">调用的方法</param>
+        /// <param name="reqBodys"></param>
+        /// <returns></returns>
+        public static string WebServiceHttpPost(string url, string method, List<ReqBody> reqBodys)
         {
-            /* HTTP POST
-                   以下是 HTTP POST 请求和响应示例。所显示的占位符需替换为实际值。
+            string result = string.Empty;
+            string param = string.Empty;
+            byte[] bytes = null;
 
-                   POST /WebService1.asmx/Add HTTP/1.1
-                   Host: localhost
-                   Content-Type: application/x-www-form-urlencoded
-                   Content-Length: length
+            Stream writer = null;
+            HttpWebRequest request = null;
+            HttpWebResponse response = null;
 
-                   a=string&b=string
-                   HTTP/1.1 200 OK
-                   Content-Type: text/xml; charset=utf-8
-                   Content-Length: length
+            switch (reqBodys.Count)
+            {
+                case 0:
+                    break;
+                case 1:
+                    param = HttpUtility.UrlEncode(reqBodys[0].Key) + "=" + HttpUtility.UrlEncode(reqBodys[0].Value);
+                    break;
+                default:
+                    param = HttpUtility.UrlEncode(reqBodys[0].Key) + "=" + HttpUtility.UrlEncode(reqBodys[0].Value);
+                    for (int i=1; i<reqBodys.Count; i++)
+                    {
+                        param += "&" + HttpUtility.UrlEncode(reqBodys[i].Key) + "=" + HttpUtility.UrlEncode(reqBodys[i].Value);
+                    }
+                    break;
+            }
 
-                   <?xml version="1.0" encoding="utf-8"?>
-                   <int xmlns="http://tempuri.org/">int</int>
-             */
+            bytes = Encoding.UTF8.GetBytes(param);
+
+            request = (HttpWebRequest)WebRequest.Create(url + "/" + method);
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = bytes.Length;
+
             try
             {
-                return "";
-
+                writer = request.GetRequestStream();        //获取用于写入请求数据的Stream对象
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return "";
             }
+
+            writer.Write(bytes, 0, bytes.Length);       //把参数数据写入请求数据流
+            writer.Close();
+
+            try
+            {
+                response = (HttpWebResponse)request.GetResponse();      //获得响应
+            }
+            catch (WebException ex)
+            {
+                return "";
+            }
+
+            #region 这种方式读取到的是一个返回的结果字符串
+            Stream stream = response.GetResponseStream();        //获取响应流
+            XmlTextReader Reader = new XmlTextReader(stream);
+            Reader.MoveToContent();
+            result = Reader.ReadInnerXml();
+            #endregion
+
+            #region 这种方式读取到的是一个Xml格式的字符串
+            //StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
+            //result = reader.ReadToEnd();
+            #endregion 
+
+            response.Dispose();
+            response.Close();
+
+            //reader.Close();
+            //reader.Dispose();
+
+            Reader.Dispose();
+            Reader.Close();
+
+            stream.Dispose();
+            stream.Close();
+
+            return result;
         }
         #endregion
+    }
+    // 参数
+    public class ReqBody
+    {
+        /// <summary>
+        /// 参数名
+        /// </summary>
+        public string Key { get; set; }
+
+        /// <summary>
+        /// 参数值
+        /// </summary>
+        public string Value { get; set; }
     }
 }
