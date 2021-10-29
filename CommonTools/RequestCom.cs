@@ -21,6 +21,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
+using System.Xml;
+using static System.Net.WebRequestMethods;
 
 namespace CommonTools
 {
@@ -29,6 +32,7 @@ namespace CommonTools
     // HttpWebResponse:对http协议进行了完整的封装( Header, Content, Cookie)，与HttpWebRequest结合使用。
     public class RequestCom
     {
+        #region WebAPI
         /// <summary>
         /// Get方法
         /// </summary>
@@ -43,10 +47,11 @@ namespace CommonTools
                 byte[] byteArray = Encoding.UTF8.GetBytes(postData);
                 HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(Url);
                 webRequest.Method = "GET";
-                webRequest.Accept = "application/json, text/javascript, */*";  // 出错就删掉
+
                 webRequest.ContentType = "application/json; charset=utf-8";
                 webRequest.ContentLength = byteArray.Length;
- 
+                webRequest.Accept = "application/json, text/javascript, */*";
+
                 HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
                 using (StreamReader sr = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
                 {
@@ -72,10 +77,10 @@ namespace CommonTools
                 byte[] byteArray = Encoding.UTF8.GetBytes(body);
                 HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
                 webRequest.Method = "POST";
-                webRequest.Accept = "application/json, text/javascript, */*";
                 webRequest.ContentType = "application/json; charset=utf-8";
                 webRequest.ContentLength = byteArray.Length;
                 webRequest.GetRequestStream().Write(byteArray, 0, byteArray.Length);
+                webRequest.Accept = "application/json, text/javascript, */*";
 
                 HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
                 using (StreamReader sr = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
@@ -102,10 +107,10 @@ namespace CommonTools
                 byte[] byteArray = Encoding.UTF8.GetBytes(body);
                 HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
                 webRequest.Method = "PUT";
-                webRequest.Accept = "application/json, text/javascript, */*";
                 webRequest.ContentType = "application/json";
                 webRequest.ContentLength = byteArray.Length;
                 webRequest.GetRequestStream().Write(byteArray, 0, byteArray.Length);
+                webRequest.Accept = "application/json, text/javascript, */*";
 
                 HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
                 using (StreamReader sr = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
@@ -132,10 +137,10 @@ namespace CommonTools
                 byte[] byteArray = Encoding.UTF8.GetBytes(body);
                 HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
                 webRequest.Method = "DELETE";
-                webRequest.Accept = "application/json, text/javascript, */*";
                 webRequest.ContentType = "application/json";
                 webRequest.ContentLength = byteArray.Length;
                 webRequest.GetRequestStream().Write(byteArray, 0, byteArray.Length);
+                webRequest.Accept = "application/json, text/javascript, */*";
 
                 HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
                 using (StreamReader sr = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
@@ -148,5 +153,38 @@ namespace CommonTools
                 throw new Exception(ex.Message);
             }
         }
+
+        #endregion
+
+        #region WebService
+        public static string WebServiceHttpPost(string mUrl, string body)
+        {
+            /* HTTP POST
+                   以下是 HTTP POST 请求和响应示例。所显示的占位符需替换为实际值。
+
+                   POST /WebService1.asmx/Add HTTP/1.1
+                   Host: localhost
+                   Content-Type: application/x-www-form-urlencoded
+                   Content-Length: length
+
+                   a=string&b=string
+                   HTTP/1.1 200 OK
+                   Content-Type: text/xml; charset=utf-8
+                   Content-Length: length
+
+                   <?xml version="1.0" encoding="utf-8"?>
+                   <int xmlns="http://tempuri.org/">int</int>
+             */
+            try
+            {
+                return "";
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        #endregion
     }
 }
