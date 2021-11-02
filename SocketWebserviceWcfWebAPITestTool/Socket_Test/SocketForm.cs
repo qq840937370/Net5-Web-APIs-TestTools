@@ -10,6 +10,7 @@
 *│　类    名：WebAPITestForm                                     
 *└──────────────────────────────────────────────────────────────┘
 */
+using SocketWebserviceWcfWebAPITestTool.Socket_Test;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,18 @@ namespace WebserviceWcfWebAPITestTool.Socket_Test
         private void SocketForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            WinSockerServer1Test winSockerServer1Test = new WinSockerServer1Test();
+            winSockerServer1Test.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SocketServerTest socketServerTest = new SocketServerTest();
+            socketServerTest.ShowDialog();
         }
     }
 }
