@@ -29,7 +29,7 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBroadcast = new System.Windows.Forms.Button();
+            this.btnSendMsg = new System.Windows.Forms.Button();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnModify = new System.Windows.Forms.Button();
@@ -46,16 +46,16 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnBroadcast
+            // btnSendMsg
             // 
-            this.btnBroadcast.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnBroadcast.Location = new System.Drawing.Point(314, 61);
-            this.btnBroadcast.Name = "btnBroadcast";
-            this.btnBroadcast.Size = new System.Drawing.Size(129, 56);
-            this.btnBroadcast.TabIndex = 21;
-            this.btnBroadcast.Text = "发送";
-            this.btnBroadcast.UseVisualStyleBackColor = true;
-            this.btnBroadcast.Click += new System.EventHandler(this.btnBroadcast_Click);
+            this.btnSendMsg.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSendMsg.Location = new System.Drawing.Point(314, 61);
+            this.btnSendMsg.Name = "btnSendMsg";
+            this.btnSendMsg.Size = new System.Drawing.Size(129, 56);
+            this.btnSendMsg.TabIndex = 21;
+            this.btnSendMsg.Text = "发送";
+            this.btnSendMsg.UseVisualStyleBackColor = true;
+            this.btnSendMsg.Click += new System.EventHandler(this.btnSendMsg_Click);
             // 
             // txtIPAddress
             // 
@@ -176,7 +176,7 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnBroadcast);
+            this.Controls.Add(this.btnSendMsg);
             this.Controls.Add(this.txtIPAddress);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnModify);
@@ -199,7 +199,7 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
 
         #endregion
 
-        private System.Windows.Forms.Button btnBroadcast;
+        private System.Windows.Forms.Button btnSendMsg;
         private System.Windows.Forms.TextBox txtIPAddress;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnModify;

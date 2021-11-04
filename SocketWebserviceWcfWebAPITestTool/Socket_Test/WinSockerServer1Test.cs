@@ -172,7 +172,10 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
 
         }
 
-        private void btnBroadcast_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 发送按钮
+        /// </summary>
+        private void btnSendMsg_Click(object sender, EventArgs e)
         {
             if (txtIPAddress.Enabled == true)
             {

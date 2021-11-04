@@ -46,5 +46,10 @@ namespace WebserviceWcfWebAPITestTool.Socket_Test
             SocketServerTest socketServerTest = new SocketServerTest();
             socketServerTest.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("请运行WinSocketWebTest项目，WinSoketTest页面的内容");
+        }
     }
 }

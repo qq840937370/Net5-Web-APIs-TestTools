@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "WinSocket客户端";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>WinSocket客户端</title>
+</head>
+<body>
+    <div>
+        <form id="Form">
+            <label id="address">服务端地址:</label>
+            <input name="" id="IpAddress" value="ws://10.206.14.152:8080" />
+            <button type="submit" onclick="Connect();">连接</button><br />
+
+            <label id="a">a</label>
+            <input name="" id="ValueA" value="" />
+            <button type="submit" onclick="SendData();">提交</button><br />
+
+            <label id="b">b</label>
+            <input name="" id="ValueB" value="" />
+        </form>
+        <div id="txtInfo" style="border: dashed 1px black;height: 500px;width: 500px;margin-top: 10px;"></div>
+    </div>
+</body>
+</html>
+@{
+<script type="text/javascript">
+    var test = function () {
+
+        var print = document.getElementById('txtInfo');
+        var form = document.getElementById('Form');
+        var inputStrA = document.getElementById('ValueA');
+        var ipaddress = document.getElementById('IpAddress').value;
+
+        print.innerHTML += "connecting to server ..<br/>";
+
+        //参数即想要连接服务器的ip。 服务器可以是node.js， 也可以是其他项目，如c#
+        //window.ws = new WebSocket('ws://10.206.14.152:8080/'); //连接服务
+        //window.ws = new WebSocket('ws://192.168.43.78:8080/'); //连接服务
+        window.ws = new WebSocket(ipaddress); //连接服务
+
+
+        //监听消息状态
+        ws.onmessage = function (msg) {
+            var jsobj = JSON.parse(msg.data);//json字符串转为对象
+            document.getElementById('ValueA').value = jsobj.a;//写入输入框中
+            document.getElementById('ValueB').value = jsobj.b;
+
+            print.innerHTML += msg.data + '<br/>'
+        }
+        //监听链接状态
+        ws.onopen = function () {
+            print.innerHTML += 'connection open <br/>'
+        }
+        //监听关闭状态
+        ws.onclose = function () {
+            print.innerHTML += 'connection closed<br/>';
+        }
+
+        //向服务器端发送消息
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            //序列化后的字符串发给服务端，服务端以字节数组格式接收，若转成字符串并添加部分信息再转回字节数组时，string.format函数会报错
+            //var jsonObj = { "name": "zhangsan", "age": 18 };
+            //传入一个json字符串进行测试，服务器会进行判断。
+            //ws.send(JSON.stringify(jsonObj));
+            //ws.send(jsonObj);
+            //传入一个非json字符串进行测试，服务器会进行判断。
+            //ws.send("test");
+        })
+    }
+    //window.onload = test();
+
+    function Connect() {
+        test();
+    }
+
+    function SendData() {
+        var valueA = document.getElementById('ValueA').value;
+        var valueB = document.getElementById('ValueB').value;
+
+        if (valueA.length == 0) { valueA = "-"; }
+        if (valueB.length == 0) { valueB = "-"; }
+
+        var jsonobj = {
+            "a": valueA,
+            "b": valueB
+        };
+        var jsonstr = JSON.stringify(jsonobj);
+
+        //初始化WebSocket
+        //InitWebSocket();
+        //如果WebSocket打开，发送数据
+        if (ws.OPEN && ws.readyState == 1) {
+            ws.send(jsonstr);
+        }
+        console.log(ws.readyState);
+        //如果WebSocket关闭，显示消息
+        if (ws.readyState == 2 || ws.readyState == 3) {
+            console.log("进来关闭函数了")
+            alert("WebSocket关闭了，无法发送数据");
+        }
+    }
+</script>
+}
