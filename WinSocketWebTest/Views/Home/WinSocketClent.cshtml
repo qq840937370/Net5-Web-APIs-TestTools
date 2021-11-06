@@ -53,11 +53,11 @@
         }
         //监听链接状态
         ws.onopen = function () {
-            print.innerHTML += 'connection open <br/>'
+            print.innerHTML += '监听 打开 <br/>'
         }
         //监听关闭状态
         ws.onclose = function () {
-            print.innerHTML += 'connection closed<br/>';
+            print.innerHTML += '监听 关闭<br/>';
         }
 
         //向服务器端发送消息
