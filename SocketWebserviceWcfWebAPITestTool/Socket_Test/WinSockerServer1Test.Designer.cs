@@ -36,7 +36,6 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOpenServer = new System.Windows.Forms.Button();
             this.lblListen = new System.Windows.Forms.Label();
-            this.btnShowCon = new System.Windows.Forms.Button();
             this.txtInfo = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtBvalue = new System.Windows.Forms.TextBox();
@@ -49,9 +48,10 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
             // btnSendMsg
             // 
             this.btnSendMsg.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSendMsg.Location = new System.Drawing.Point(314, 61);
+            this.btnSendMsg.Location = new System.Drawing.Point(244, 52);
+            this.btnSendMsg.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSendMsg.Name = "btnSendMsg";
-            this.btnSendMsg.Size = new System.Drawing.Size(129, 56);
+            this.btnSendMsg.Size = new System.Drawing.Size(100, 48);
             this.btnSendMsg.TabIndex = 21;
             this.btnSendMsg.Text = "发送";
             this.btnSendMsg.UseVisualStyleBackColor = true;
@@ -59,34 +59,40 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
             // 
             // txtIPAddress
             // 
-            this.txtIPAddress.Location = new System.Drawing.Point(87, 18);
+            this.txtIPAddress.Location = new System.Drawing.Point(68, 15);
+            this.txtIPAddress.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtIPAddress.Name = "txtIPAddress";
-            this.txtIPAddress.Size = new System.Drawing.Size(256, 27);
+            this.txtIPAddress.Size = new System.Drawing.Size(200, 23);
             this.txtIPAddress.TabIndex = 16;
+            this.txtIPAddress.Text = "ws://10.206.14.152:8080";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 21);
+            this.label1.Location = new System.Drawing.Point(9, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.Size = new System.Drawing.Size(56, 17);
             this.label1.TabIndex = 15;
             this.label1.Text = "监听地址";
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(349, 17);
+            this.btnModify.Location = new System.Drawing.Point(271, 14);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(94, 29);
+            this.btnModify.Size = new System.Drawing.Size(73, 25);
             this.btnModify.TabIndex = 14;
             this.btnModify.Text = "修改";
             this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(24, 70);
+            this.btnClose.Location = new System.Drawing.Point(19, 60);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(94, 29);
+            this.btnClose.Size = new System.Drawing.Size(73, 25);
             this.btnClose.TabIndex = 11;
             this.btnClose.Text = "关闭监听";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -94,9 +100,10 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
             // 
             // btnOpenServer
             // 
-            this.btnOpenServer.Location = new System.Drawing.Point(24, 13);
+            this.btnOpenServer.Location = new System.Drawing.Point(19, 11);
+            this.btnOpenServer.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnOpenServer.Name = "btnOpenServer";
-            this.btnOpenServer.Size = new System.Drawing.Size(94, 29);
+            this.btnOpenServer.Size = new System.Drawing.Size(73, 25);
             this.btnOpenServer.TabIndex = 10;
             this.btnOpenServer.Text = "开启监听";
             this.btnOpenServer.UseVisualStyleBackColor = true;
@@ -106,88 +113,86 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
             // 
             this.lblListen.AutoSize = true;
             this.lblListen.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblListen.Location = new System.Drawing.Point(628, 26);
+            this.lblListen.Location = new System.Drawing.Point(514, 22);
+            this.lblListen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblListen.Name = "lblListen";
-            this.lblListen.Size = new System.Drawing.Size(159, 19);
+            this.lblListen.Size = new System.Drawing.Size(32, 17);
             this.lblListen.TabIndex = 25;
-            this.lblListen.Text = "服务器当前状态：开启";
+            this.lblListen.Text = "状态";
             this.lblListen.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // btnShowCon
-            // 
-            this.btnShowCon.Location = new System.Drawing.Point(656, 71);
-            this.btnShowCon.Name = "btnShowCon";
-            this.btnShowCon.Size = new System.Drawing.Size(118, 46);
-            this.btnShowCon.TabIndex = 24;
-            this.btnShowCon.Text = "显示当前连接";
-            this.btnShowCon.UseVisualStyleBackColor = true;
             // 
             // txtInfo
             // 
-            this.txtInfo.Location = new System.Drawing.Point(12, 147);
+            this.txtInfo.Location = new System.Drawing.Point(9, 125);
+            this.txtInfo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
-            this.txtInfo.Size = new System.Drawing.Size(776, 296);
+            this.txtInfo.Size = new System.Drawing.Size(604, 252);
             this.txtInfo.TabIndex = 23;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnOpenServer);
-            this.panel1.Location = new System.Drawing.Point(473, 8);
+            this.panel1.Location = new System.Drawing.Point(368, 7);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(142, 113);
+            this.panel1.Size = new System.Drawing.Size(110, 96);
             this.panel1.TabIndex = 22;
             // 
             // txtBvalue
             // 
-            this.txtBvalue.Location = new System.Drawing.Point(87, 94);
+            this.txtBvalue.Location = new System.Drawing.Point(68, 80);
+            this.txtBvalue.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtBvalue.Name = "txtBvalue";
-            this.txtBvalue.Size = new System.Drawing.Size(206, 27);
+            this.txtBvalue.Size = new System.Drawing.Size(161, 23);
             this.txtBvalue.TabIndex = 20;
             // 
             // txtAvalue
             // 
-            this.txtAvalue.Location = new System.Drawing.Point(87, 58);
+            this.txtAvalue.Location = new System.Drawing.Point(68, 49);
+            this.txtAvalue.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtAvalue.Name = "txtAvalue";
-            this.txtAvalue.Size = new System.Drawing.Size(206, 27);
+            this.txtAvalue.Size = new System.Drawing.Size(161, 23);
             this.txtAvalue.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 97);
+            this.label3.Location = new System.Drawing.Point(9, 82);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 20);
+            this.label3.Size = new System.Drawing.Size(28, 17);
             this.label3.TabIndex = 18;
             this.label3.Text = "b：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 61);
+            this.label2.Location = new System.Drawing.Point(9, 52);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 20);
+            this.label2.Size = new System.Drawing.Size(27, 17);
             this.label2.TabIndex = 17;
             this.label2.Text = "a：";
             // 
             // WinSockerServer1Test
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(622, 382);
             this.Controls.Add(this.btnSendMsg);
             this.Controls.Add(this.txtIPAddress);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.lblListen);
-            this.Controls.Add(this.btnShowCon);
             this.Controls.Add(this.txtInfo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtBvalue);
             this.Controls.Add(this.txtAvalue);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "WinSockerServer1Test";
             this.Text = "WinSockerServer1Test";
             this.Load += new System.EventHandler(this.WinSockerServer1Test_Load);
@@ -206,7 +211,6 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnOpenServer;
         private System.Windows.Forms.Label lblListen;
-        private System.Windows.Forms.Button btnShowCon;
         private System.Windows.Forms.TextBox txtInfo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtBvalue;

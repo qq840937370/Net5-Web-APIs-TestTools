@@ -28,6 +28,62 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
         }
 
         /// <summary>
+        /// 修改
+        /// </summary>
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            if (btnModify.Text == "修改")
+            {
+                txtIPAddress.Enabled = true;
+                btnModify.Text = "确定";
+            }
+            else if (btnModify.Text == "确定")
+            {
+                txtIPAddress.Enabled = false;
+                btnModify.Text = "修改";
+            }
+        }
+
+        /// <summary>
+        /// 发送按钮
+        /// </summary>
+        private void btnSendMsg_Click(object sender, EventArgs e)
+        {
+            if (txtIPAddress.Enabled == true)
+            {
+                MessageBox.Show("请先确认地址");
+                return;
+            }
+            string valueA = string.Empty, valueB = string.Empty;
+            valueA = txtAvalue.Text;
+            valueB = txtBvalue.Text;
+            string jsondata = SerializeJson(valueA, valueB);
+
+            var array = new ArraySegment<byte>(Encoding.UTF8.GetBytes(jsondata));
+            //此处需要捕捉异常，连接是否通畅？
+            try
+            {
+                if (client.State == WebSocketState.Open)//连通状态才允许发送
+                {
+                    client.SendAsync(array, WebSocketMessageType.Text, true, CancellationToken.None);
+                }
+                else
+                {
+                    MessageBox.Show("连接状态异常,请尝试重新连接");
+                }
+            }
+            catch (Exception ex)
+            {
+                txtInfo.AppendText(ex.ToString() + DateTime.Now.ToString() + "\n");
+                return;
+            }
+            finally
+            {
+                lblListen.Text = client.State.ToString();
+            }
+        }
+        
+        /// <summary>
         /// 打开监听
         /// </summary>
         /// <param name="sender"></param>
@@ -66,6 +122,31 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
             }
 
             StartReceiving(client);
+        }
+
+        /// <summary>
+        /// 关闭监听
+        /// </summary>
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            if (client.State == WebSocketState.Open)
+            {
+                try
+                {
+                    client.CloseAsync(WebSocketCloseStatus.Empty, string.Empty, CancellationToken.None);
+                    client.Dispose();
+                    txtInfo.AppendText("主动关闭了连接" + DateTime.Now.ToString() + "\n");
+
+                }
+                catch (Exception ex)
+                {
+                    txtInfo.AppendText(ex.ToString() + DateTime.Now.ToString() + "\n");
+                }
+                finally
+                {
+                    lblListen.Text = client.State.ToString();
+                }
+            }
         }
 
         #region 方法
@@ -166,50 +247,6 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
             return Jsondata;
         }
         #endregion
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// 发送按钮
-        /// </summary>
-        private void btnSendMsg_Click(object sender, EventArgs e)
-        {
-            if (txtIPAddress.Enabled == true)
-            {
-                MessageBox.Show("请先确认地址");
-                return;
-            }
-            string valueA = string.Empty, valueB = string.Empty;
-            valueA = txtAvalue.Text;
-            valueB = txtBvalue.Text;
-            string jsondata = SerializeJson(valueA, valueB);
-
-            var array = new ArraySegment<byte>(Encoding.UTF8.GetBytes(jsondata));
-            //此处需要捕捉异常，连接是否通畅？
-            try
-            {
-                if (client.State == WebSocketState.Open)//连通状态才允许发送
-                {
-                    client.SendAsync(array, WebSocketMessageType.Text, true, CancellationToken.None);
-                }
-                else
-                {
-                    MessageBox.Show("连接状态异常,请尝试重新连接");
-                }
-            }
-            catch (Exception ex)
-            {
-                txtInfo.AppendText(ex.ToString() + DateTime.Now.ToString() + "\n");
-                return;
-            }
-            finally
-            {
-                lblListen.Text = client.State.ToString();
-            }
-        }
     }
 
     /// <summary>
