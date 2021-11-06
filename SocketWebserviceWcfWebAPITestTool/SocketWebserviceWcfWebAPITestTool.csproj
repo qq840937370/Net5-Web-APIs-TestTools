@@ -1,11 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>SocketWebserviceWcfWebAPITestTool</AssemblyName>
     <RootNamespace>SocketWebserviceWcfWebAPITestTool</RootNamespace>
+    <ApplicationIcon />
+    <StartupObject></StartupObject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>E:\VS\CS\Net5\Net5-Web-APIs-TestTools\mainBl\</OutputPath>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors />
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +22,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CommonTools\CommonTools.csproj" />
-    <ProjectReference Include="..\WebServceTestSup\WebServceTestSup.csproj" />
   </ItemGroup>
 </Project>

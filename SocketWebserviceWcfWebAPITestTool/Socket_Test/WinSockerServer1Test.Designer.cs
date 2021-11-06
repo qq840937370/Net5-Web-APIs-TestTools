@@ -64,7 +64,7 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
             this.txtIPAddress.Name = "txtIPAddress";
             this.txtIPAddress.Size = new System.Drawing.Size(200, 23);
             this.txtIPAddress.TabIndex = 16;
-            this.txtIPAddress.Text = "ws://10.206.14.152:8080";
+            this.txtIPAddress.Text = "ws://127.0.0.1:8080";
             // 
             // label1
             // 

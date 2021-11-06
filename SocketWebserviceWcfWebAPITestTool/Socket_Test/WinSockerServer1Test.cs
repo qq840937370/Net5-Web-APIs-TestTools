@@ -193,6 +193,8 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
                                 if (tv.a != null && tv.b.Length > 0) { valueB = tv.b; }
                                 txtAvalue.Text = valueA;
                                 txtBvalue.Text = valueB;
+
+                                lblListen.Text = "/n" + jsonmsg;  // 显示到显示框   
                             }
                         }
                         catch (Exception ex)
