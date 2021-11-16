@@ -43,8 +43,8 @@ namespace WebserviceWcfWebAPITestTool.Socket_Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SocketServerTest socketServerTest = new SocketServerTest();
-            socketServerTest.ShowDialog();
+            SocketAPITest socketAPITest = new SocketAPITest();
+            socketAPITest.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -36,21 +36,21 @@ namespace WebserviceWcfWebAPITestTool.Socket_Test
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(34, 26);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button1.Location = new System.Drawing.Point(44, 31);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 37);
+            this.button1.Size = new System.Drawing.Size(231, 44);
             this.button1.TabIndex = 0;
-            this.button1.Text = "SocketServer测试";
+            this.button1.Text = "SocketAPI版测试";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(34, 80);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button2.Location = new System.Drawing.Point(44, 94);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 37);
+            this.button2.Size = new System.Drawing.Size(231, 44);
             this.button2.TabIndex = 1;
             this.button2.Text = "WinSocket测试";
             this.button2.UseVisualStyleBackColor = true;
@@ -58,10 +58,10 @@ namespace WebserviceWcfWebAPITestTool.Socket_Test
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(34, 133);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button3.Location = new System.Drawing.Point(44, 156);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(180, 35);
+            this.button3.Size = new System.Drawing.Size(231, 41);
             this.button3.TabIndex = 2;
             this.button3.Text = "WinSocket测试Web版";
             this.button3.UseVisualStyleBackColor = true;
@@ -69,13 +69,13 @@ namespace WebserviceWcfWebAPITestTool.Socket_Test
             // 
             // SocketForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(250, 211);
+            this.ClientSize = new System.Drawing.Size(321, 248);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SocketForm";
             this.Text = "SocketForm";
             this.Load += new System.EventHandler(this.SocketForm_Load);

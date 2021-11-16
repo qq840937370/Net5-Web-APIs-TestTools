@@ -136,7 +136,6 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
                     client.CloseAsync(WebSocketCloseStatus.Empty, string.Empty, CancellationToken.None);
                     client.Dispose();
                     txtInfo.AppendText("主动关闭了连接" + DateTime.Now.ToString() + "\n");
-
                 }
                 catch (Exception ex)
                 {
