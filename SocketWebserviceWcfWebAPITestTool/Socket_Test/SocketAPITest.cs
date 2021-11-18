@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMSTOMESTT.Common;
 
 namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
 {
@@ -74,7 +75,44 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
         /// </summary>
         private void btnSend_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(txtSendMsg.Text.Trim()))
+            {
+                txtInfo.AppendText("你怎么能发空消息呢！");
+                return;
+            }
+            if (txtUrl.Enabled == true)
+            {
+                MessageBox.Show("请先确认地址");
+                return;
+            }
 
+            // 读取用户信息
+            WSMsg wSMsg = JsonfileTools.ReadjsonT<WSMsg>("UserData");
+            wSMsg.MsgData = txtSendMsg.Text.Trim();
+            string jsondata = JsonConvert.SerializeObject(wSMsg);
+
+            var array = new ArraySegment<byte>(Encoding.UTF8.GetBytes(jsondata));
+            try
+            {
+                if (clientWebSocket.State == WebSocketState.Open)  // 连通状态才允许发送
+                {
+                    clientWebSocket.SendAsync(array, WebSocketMessageType.Text, true, CancellationToken.None);
+                }
+                else
+                {
+                    txtInfo.AppendText("连接状态异常,请尝试重新连接");
+                    MessageBox.Show("连接状态异常,请尝试重新连接");
+                }
+            }
+            catch (Exception ex)
+            {
+                txtInfo.AppendText(ex.ToString() + DateTime.Now.ToString() + "\n");
+                return;
+            }
+            finally
+            {
+                txtInfo.AppendText(clientWebSocket.State.ToString());
+            }
         }
 
         #region 方法
@@ -98,8 +136,6 @@ namespace SocketWebserviceWcfWebAPITestTool.Socket_Test
 
                 // 异步接受数据
                 StartReceiving(clientWebSocket);
-
-
             }
             catch (Exception ex)
             {
